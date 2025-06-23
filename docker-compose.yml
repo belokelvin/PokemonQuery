@@ -1,6 +1,35 @@
+# Docker Compose para Pokemon Searcher
+# Facilita o gerenciamento e execução da aplicação
+
+version: '3.8'
+
 services:
-  pokemon-query:
+  pokemon-searcher:
     build: .
+    container_name: pokemon_searcher_app
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - pokemon_network
+    # Monto volume para logs caso necessário
     volumes:
-      - .:/app
-    tty: true
+      - ./logs:/app/logs
+    # Reinicia automaticamente em caso de falha
+    restart: unless-stopped
+    # Configuração de recursos
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
+
+networks:
+  pokemon_network:
+    driver: bridge
+
+volumes:
+  logs:
+    driver: local

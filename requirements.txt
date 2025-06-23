@@ -1,0 +1,4 @@
+# Dependências do Pokemon Searcher
+# Mantenho apenas as dependências essenciais para um container leve
+
+requests==2.31.0
