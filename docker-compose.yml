@@ -1,0 +1,6 @@
+services:
+  pokemon-query:
+    build: .
+    volumes:
+      - .:/app
+    tty: true
