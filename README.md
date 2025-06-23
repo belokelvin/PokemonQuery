@@ -1,6 +1,6 @@
 # Buscador de Pokémon - Consulta Inteligente via PokéAPI
 
-Este projeto foi desenvolvido para atender a um desafio, permitindo consultar informações detalhadas de Pokémon em bases públicas, de forma simples, flexível e eficiente.
+Desenvolvido para atender a um desafio, permitindo consultar informações detalhadas de Pokémon na PokeAPI, de forma simples, flexível e eficiente.
 
 ## O que eu implementei
 
@@ -57,15 +57,35 @@ query_pokemon("pikachu", traduzir=True)  # Retorna só o essencial em português
 - **Flexibilidade:**
   - O código aceita tanto strings quanto inteiros, e o campo de busca é opcional.
 
-## Como rodar
+## Como rodar com Docker
 
-### Docker (recomendado)
+### 1. Gerar a imagem Docker
+
+No terminal, execute:
 ```bash
 docker build -t buscador-pokemon .
-docker run buscador-pokemon
 ```
 
-### Local
+### 2. Executar a imagem em modo interativo
+
+Para rodar o modo interativo (onde você pode digitar comandos como `query_pokemon(...)`):
+```bash
+docker run -it buscador-pokemon
+```
+ ### Rodar os teste 
+ Para rodar os testes apresentados no arquivo `test_pokemon.py` você executa os testes automatizados dentro do ambiente Docker, sem precisar alterar nada no projeto com o comando:
+```bash
+docker run --rm -it buscador-pokemon python test_pokemon.py
+```
+> **Atenção:** O modo interativo só funciona corretamente com o parâmetro `-it` no `docker run`.
+
+### 3. (Opcional) Usar Docker Compose
+Se preferir, rode com Docker Compose (já configurado para modo interativo):
+```bash
+docker-compose up
+```
+
+## Como rodar localmente
 ```bash
 pip install -r requirements.txt
 python main.py  # modo interativo
@@ -76,7 +96,7 @@ python test_pokemon.py  # executa os testes obrigatórios
 
 ### Modo interativo (`main.py`)
 
-Ao rodar `python main.py`, você entra em um modo interativo onde pode digitar comandos como:
+Ao rodar `python main.py` (ou via Docker), você entra em um modo interativo onde pode digitar comandos como:
 
 ```
 query_pokemon(25)
@@ -97,8 +117,11 @@ Ao rodar `python test_pokemon.py`, todos os casos obrigatórios do cliente são 
 - `main.py`: Script interativo para o usuário digitar comandos.
 - `test_pokemon.py`: Testes automatizados dos casos obrigatórios.
 - `Dockerfile` e `requirements.txt`: Para facilitar a execução em qualquer ambiente.
+- `docker-compose.yml`: Para facilitar o uso em ambientes Docker com múltiplos serviços.
 
 ## Observações finais
 
 - Todas as funções e classes têm docstrings detalhadas, explicando o que fazem e como usar.
 - O projeto foi pensado para ser facilmente expandido, podendo futuramente incluir cache, endpoints web ou integração com bancos de dados.
+
+Se tiver dúvidas ou quiser sugerir melhorias, fique à vontade para abrir uma issue ou contribuir!

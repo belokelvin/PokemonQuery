@@ -25,6 +25,8 @@ services:
         reservations:
           memory: 256M
           cpus: '0.25'
+    stdin_open: true
+    tty: true
 
 networks:
   pokemon_network:
