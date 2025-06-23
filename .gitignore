@@ -1,3 +1,4 @@
-/pycache/*
 Pokemon/__pycache__/*
-Pokemon/__pycache__/pesquisa_poekmon.cpython-313.pyc
+Pokemon/__pycache__/*
+*.pyc
+

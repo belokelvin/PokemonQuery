@@ -27,7 +27,7 @@ class InfoPokemon:
     Atributos:
         var_intId (int): ID do Pokémon na Pokédex.
         var_strNome (str): Nome do Pokémon.
-        var_intAltura (int): Altura em decímetros.
+        var_intAltura (int): Altura em centimetros.
         var_intPeso (int): Peso em gramas.
         var_listTipos (List[str]): Lista de tipos do Pokémon.
         var_listHabilidades (List[str]): Lista de habilidades do Pokémon.
